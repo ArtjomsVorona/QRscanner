@@ -11,6 +11,7 @@
 		96680A3323AB8006000D9F5E /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96680A3223AB8006000D9F5E /* ScannerViewController.swift */; };
 		9680BA8723ABABFD00190785 /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680BA8623ABABFD00190785 /* SavedTableViewController.swift */; };
 		9680BA8C23ABAE8800190785 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9680BA8A23ABAE8800190785 /* Model.xcdatamodeld */; };
+		9680BA9123ABC16200190785 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680BA9023ABC16200190785 /* WebViewController.swift */; };
 		96C9CDEA23AB7D4B0074632E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9CDE923AB7D4B0074632E /* AppDelegate.swift */; };
 		96C9CDEC23AB7D4B0074632E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9CDEB23AB7D4B0074632E /* SceneDelegate.swift */; };
 		96C9CDF123AB7D4C0074632E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C9CDEF23AB7D4C0074632E /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		96680A3223AB8006000D9F5E /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		9680BA8623ABABFD00190785 /* SavedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewController.swift; sourceTree = "<group>"; };
 		9680BA8B23ABAE8800190785 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9680BA9023ABC16200190785 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		96C9CDE623AB7D4B0074632E /* HWS_QRscanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWS_QRscanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C9CDE923AB7D4B0074632E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96C9CDEB23AB7D4B0074632E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				96680A3223AB8006000D9F5E /* ScannerViewController.swift */,
 				9680BA8623ABABFD00190785 /* SavedTableViewController.swift */,
+				9680BA9023ABC16200190785 /* WebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				96C9CDEA23AB7D4B0074632E /* AppDelegate.swift in Sources */,
 				96C9CDEC23AB7D4B0074632E /* SceneDelegate.swift in Sources */,
 				9680BA8723ABABFD00190785 /* SavedTableViewController.swift in Sources */,
+				9680BA9123ABC16200190785 /* WebViewController.swift in Sources */,
 				96680A3323AB8006000D9F5E /* ScannerViewController.swift in Sources */,
 				9680BA8C23ABAE8800190785 /* Model.xcdatamodeld in Sources */,
 			);

@@ -77,14 +77,20 @@ class SavedTableViewController: UITableViewController {
         }   
     }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let webViewVC = storyboard.instantiateViewController(withIdentifier: "WebViewSBID") as? WebViewController else { return }
+        
+        let item = items[indexPath.row].qrCode!
+        guard let url = URL(string: item) else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            webViewVC.qrCode = item
+            present(webViewVC, animated: true, completion: nil)
+        } else {
+            basicAlert(title: nil, message: "This is not correct web adress. Please try another.")
+        }
     }
-    */
 
 }
