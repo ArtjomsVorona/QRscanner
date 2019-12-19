@@ -151,7 +151,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     func found(code: String) {
         print(code)
         captureSession.stopRunning()
-        scanAgainAlert(code: code)
+        scanResultAlert(code: code)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -165,15 +165,20 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 }
 
 extension ScannerViewController {
-    func scanAgainAlert(code: String) {
+    func scanResultAlert(code: String) {
         DispatchQueue.main.async {
-            let alert = UIAlertController(title: "QR code:", message: code, preferredStyle: .alert)
+            let alert = UIAlertController(title: "QR code:", message: code, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Open", style: .default, handler: nil))
             alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (alert) in
                 self.addNewItem(code: code)
             }))
-            alert.addAction(UIAlertAction(title: "Scan Again", style: .default, handler: { (alert) in
+            alert.addAction(UIAlertAction(title: "Save & Open", style: .default, handler: { (alert) in
+                self.addNewItem(code: code)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (alert) in
                 self.captureSession.startRunning()
             }))
+            
             self.present(alert, animated: true, completion: nil)
         }
     }
