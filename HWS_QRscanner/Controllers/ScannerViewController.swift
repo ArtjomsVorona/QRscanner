@@ -171,6 +171,7 @@ extension ScannerViewController {
             alert.addAction(UIAlertAction(title: "Open", style: .default, handler: nil))
             alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (alert) in
                 self.addNewItem(code: code)
+                self.captureSession.startRunning()
             }))
             alert.addAction(UIAlertAction(title: "Save & Open", style: .default, handler: { (alert) in
                 self.addNewItem(code: code)
