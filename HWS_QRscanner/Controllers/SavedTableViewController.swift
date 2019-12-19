@@ -22,6 +22,23 @@ class SavedTableViewController: UITableViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
+    }
+    
+    //MARK: - Core Data functions
+    
+    func loadData() {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        
+        do {
+            items = try (context?.fetch(request))!
+        } catch  {
+            print(error.localizedDescription)
+        }
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
@@ -33,8 +50,13 @@ class SavedTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
 
-        // Configure the cell...
-
+        let item = items[indexPath.row]
+        cell.textLabel?.text = item.qrCode
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        cell.detailTextLabel?.text = dateFormatter.string(from: item.scanDate!)
+        
         return cell
     }
 
