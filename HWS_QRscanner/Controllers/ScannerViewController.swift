@@ -48,7 +48,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func setupCaptureSession() {
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.systemBackground
         captureSession = AVCaptureSession()
         
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
@@ -103,6 +103,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
             found(code: stringValue)
+//            captureSession.stopRunning()
         }
         
         dismiss(animated: true, completion: nil)
@@ -111,7 +112,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     func found(code: String) {
         print(code)
         captureSession.stopRunning()
-        basicAlert(title: "QR code:", message: code)
+//        DispatchQueue.main.async {
+//            let alert = UIAlertController(title: "QR code:", message: code, preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Open", style: .default, handler: nil))
+//            alert.addAction(UIAlertAction(title: "Scan Again", style: .default, handler: { (alert) in
+//                self.captureSession.startRunning()
+//            }))
+//            self.present(alert, animated: true, completion: nil)
+//        }
+        scanAgainAlert(code: code, captureSession: captureSession)
     }
     
     override var prefersStatusBarHidden: Bool {
