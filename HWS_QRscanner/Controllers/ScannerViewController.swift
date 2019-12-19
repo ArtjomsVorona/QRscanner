@@ -12,19 +12,16 @@ import UIKit
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        startCaptureSession()
+        setupCaptureSession()
+        verifyAuthorizationForCapture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if captureSession.isRunning == false {
-            captureSession.startRunning()
-        }
+        verifyAuthorizationForCapture()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -33,7 +30,27 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
-    func startCaptureSession() {
+    func verifyAuthorizationForCapture() {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            print("Authorized")
+            if captureSession.isRunning == false {
+                captureSession.startRunning()
+            }
+        case .notDetermined:
+            print("Not derminted")
+        case .denied:
+            print("Denied")
+        case .restricted:
+            print("Restricted")
+            return
+        @unknown default:
+            print("unknown default")
+            return
+        }
+    }
+    
+    func setupCaptureSession() {
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
         
@@ -107,5 +124,5 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
-
+    
 }
