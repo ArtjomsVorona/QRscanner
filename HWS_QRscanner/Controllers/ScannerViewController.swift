@@ -39,11 +39,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             }
         case .notDetermined:
             print("Not derminted")
-        case .denied:
-            print("Denied")
-        case .restricted:
-            print("Restricted")
-            return
+        case .denied, .restricted:
+            openSettingsAlert(title: "Camera usage is not allowed!")
         @unknown default:
             print("unknown default")
             return
@@ -70,7 +67,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         if captureSession.canAddInput(videoInput) {
             captureSession.addInput(videoInput)
         } else {
-            failed()
+            failedCapture()
             return
         }
         
@@ -82,7 +79,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             metadataOutput.metadataObjectTypes = [.qr]
         } else {
-            failed()
+            failedCapture()
             return
         }
         
@@ -94,7 +91,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         captureSession.startRunning()
     }
     
-    func failed() {
+    func failedCapture() {
         basicAlert(title: "Scanning not supported!", message: "Please use device that supports scanning a code.")
         captureSession = nil
     }

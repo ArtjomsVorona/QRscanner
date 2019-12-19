@@ -17,4 +17,20 @@ extension UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func openSettingsAlert(title: String?) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: "Would you like to open Settings?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Open", style: .default, handler: { (alert) in
+                guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+                if UIApplication.shared.canOpenURL(settingsURL) {
+                    UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+                }
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
 }
