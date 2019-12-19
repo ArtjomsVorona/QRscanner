@@ -168,12 +168,17 @@ extension ScannerViewController {
     func scanResultAlert(code: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: "QR code:", message: code, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Open", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Open", style: .default, handler: { (alert) in
+                self.captureSession.stopRunning()
+                self.goToWebView(code: code)
+            }))
             alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (alert) in
                 self.addNewItem(code: code)
                 self.captureSession.startRunning()
             }))
             alert.addAction(UIAlertAction(title: "Save & Open", style: .default, handler: { (alert) in
+                self.captureSession.stopRunning()
+                self.goToWebView(code: code)
                 self.addNewItem(code: code)
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (alert) in
@@ -181,6 +186,20 @@ extension ScannerViewController {
             }))
             
             self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func goToWebView(code: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let webViewVC = storyboard.instantiateViewController(withIdentifier: "WebViewSBID") as? WebViewController else { return }
+        
+        guard let url = URL(string: code) else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            webViewVC.qrCode = code
+            present(webViewVC, animated: true, completion: nil)
+        } else {
+            self.captureSession.startRunning()
+            basicAlert(title: "This is not correct web address!", message: "Please try another one.")
         }
     }
 }

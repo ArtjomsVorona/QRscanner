@@ -89,7 +89,7 @@ class SavedTableViewController: UITableViewController {
             webViewVC.qrCode = item
             present(webViewVC, animated: true, completion: nil)
         } else {
-            basicAlert(title: nil, message: "This is not correct web adress. Please try another.")
+            basicAlert(title: "This is not correct web address!", message: "Please try another one.")
         }
     }
 
