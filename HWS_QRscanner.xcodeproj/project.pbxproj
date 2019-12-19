@@ -10,6 +10,7 @@
 		96680A3123AB7F21000D9F5E /* Alert-Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96680A3023AB7F21000D9F5E /* Alert-Ext.swift */; };
 		96680A3323AB8006000D9F5E /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96680A3223AB8006000D9F5E /* ScannerViewController.swift */; };
 		9680BA8723ABABFD00190785 /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680BA8623ABABFD00190785 /* SavedTableViewController.swift */; };
+		9680BA8C23ABAE8800190785 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9680BA8A23ABAE8800190785 /* Model.xcdatamodeld */; };
 		96C9CDEA23AB7D4B0074632E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9CDE923AB7D4B0074632E /* AppDelegate.swift */; };
 		96C9CDEC23AB7D4B0074632E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9CDEB23AB7D4B0074632E /* SceneDelegate.swift */; };
 		96C9CDF123AB7D4C0074632E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C9CDEF23AB7D4C0074632E /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		96680A3023AB7F21000D9F5E /* Alert-Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert-Ext.swift"; sourceTree = "<group>"; };
 		96680A3223AB8006000D9F5E /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		9680BA8623ABABFD00190785 /* SavedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewController.swift; sourceTree = "<group>"; };
+		9680BA8B23ABAE8800190785 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		96C9CDE623AB7D4B0074632E /* HWS_QRscanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWS_QRscanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C9CDE923AB7D4B0074632E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96C9CDEB23AB7D4B0074632E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,12 +62,13 @@
 		96C9CDE823AB7D4B0074632E /* HWS_QRscanner */ = {
 			isa = PBXGroup;
 			children = (
-				96C9CDFF23AB7DBB0074632E /* Controllers */,
 				96C9CDFD23AB7D7B0074632E /* Delegates */,
+				96C9CDFF23AB7DBB0074632E /* Controllers */,
 				96C9CE0023AB7DD40074632E /* Extensions */,
 				96C9CDFE23AB7DA80074632E /* Views */,
 				96C9CDF223AB7D610074632E /* Assets.xcassets */,
 				96C9CDF723AB7D610074632E /* Info.plist */,
+				9680BA8A23ABAE8800190785 /* Model.xcdatamodeld */,
 			);
 			path = HWS_QRscanner;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				96C9CDEC23AB7D4B0074632E /* SceneDelegate.swift in Sources */,
 				9680BA8723ABABFD00190785 /* SavedTableViewController.swift in Sources */,
 				96680A3323AB8006000D9F5E /* ScannerViewController.swift in Sources */,
+				9680BA8C23ABAE8800190785 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +382,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9680BA8A23ABAE8800190785 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9680BA8B23ABAE8800190785 /* Model.xcdatamodel */,
+			);
+			currentVersion = 9680BA8B23ABAE8800190785 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 96C9CDDE23AB7D4B0074632E /* Project object */;
 }
