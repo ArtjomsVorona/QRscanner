@@ -7,22 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--History-->
-        <scene sceneID="2SW-Sd-EyC">
-            <objects>
-                <viewController id="yj2-Ro-Xxi" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LJM-B3-kFr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Tl3-qi-MXZ"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="History" image="list.bullet" catalog="system" id="cWB-C1-h8X"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TKx-6e-OL8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="448" y="430"/>
-        </scene>
         <!--Scan QR-->
         <scene sceneID="cyk-DV-OJf">
             <objects>
@@ -50,12 +34,41 @@
                     </tabBar>
                     <connections>
                         <segue destination="hro-iH-vIe" kind="relationship" relationship="viewControllers" id="z55-Tf-o6W"/>
-                        <segue destination="yj2-Ro-Xxi" kind="relationship" relationship="viewControllers" id="8dG-Nt-NL1"/>
+                        <segue destination="dfX-pA-DZl" kind="relationship" relationship="viewControllers" id="L46-pQ-4X6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Au-Zl-ctk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-468" y="106"/>
+        </scene>
+        <!--Saved-->
+        <scene sceneID="ojP-ff-QhY">
+            <objects>
+                <tableViewController id="dfX-pA-DZl" customClass="SavedTableViewController" customModule="HWS_QRscanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="reY-vI-F8P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="codeCell" id="nKn-QT-Dej">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nKn-QT-Dej" id="Fi3-aZ-UOh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dfX-pA-DZl" id="xNN-uz-tJN"/>
+                            <outlet property="delegate" destination="dfX-pA-DZl" id="5Od-rh-rvq"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Saved" image="list.bullet" catalog="system" id="xML-gX-bM5"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yxl-Im-bS5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="448" y="521"/>
         </scene>
     </scenes>
     <resources>

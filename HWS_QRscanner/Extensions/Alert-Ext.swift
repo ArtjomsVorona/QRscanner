@@ -34,15 +34,4 @@ extension UIViewController {
         }
     }
     
-    func scanAgainAlert(code: String, captureSession: AVCaptureSession) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "QR code:", message: code, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Open", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "Scan Again", style: .default, handler: { (alert) in
-                captureSession.startRunning()
-            }))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
 }
